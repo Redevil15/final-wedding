@@ -18,7 +18,7 @@ export const PlaceComponent = () => {
         <svg width="99px" height="99px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#b69f6b"><g id="SVGRepo_bgCarrier" stroke-width="0.5"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#b69f6b"></g><g id="SVGRepo_iconCarrier"> <path strokeWidth="0.75" d="M3 18H21M12 7V4M12 4H10M12 4H14M5 15V12C5 9.23858 7.23858 7 10 7H14C16.7614 7 19 9.23858 19 12V15H5Z" stroke="#b69f6b" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
 
         <h2 className="leading-10 text-20 text-[#b69f6b] uppercase tracking-wider">Recepción</h2>
-        <span className="flex justify-center items-center text-gray-700 font-normal text-base leading-10 dark:text-gray-800 animate-pulse">17:00</span>
+        <span className="flex justify-center items-center text-gray-700 font-normal text-base leading-10 dark:text-gray-800 animate-pulse">14:30</span>
         <p className="text-gray-700 font-semibold text-base leading-10">Salón Buenavista</p>
         <p className='text-[#787878] font-normal text-base leading-10'>Av. Buenavista 425, San Mateo Atenco.</p>
         <a className="text-[#b69f6b] fonrt-semibold text-base leading-10 italic mb-8" href={googleMapsUrl} target="_blank" rel='noopener noreferrer'>Ver ubicación en Mapa</a>
@@ -34,7 +34,7 @@ export const PlaceComponent = () => {
         </svg>
 
         <h2 className="leading-10 text-20 text-[#b69f6b] uppercase tracking-wider">Ceremonia</h2>
-        <span className="flex justify-center items-center text-gray-700 font-normal text-base leading-10 uppercase animate-pulse">17:20</span>
+        <span className="flex justify-center items-center text-gray-700 font-normal text-base leading-10 uppercase animate-pulse">15:00</span>
         <p className="text-gray-700 font-semibold text-base leading-10">Salón Buenavista</p>
         <p className='text-[#787878] font-normal text-base leading-10'>Av. Buenavista 425, San Mateo Atenco.</p>
         <a className="text-[#b69f6b] fonrt-semibold text-base leading-10 italic" href={googleMapsUrl} target="_blank" rel='noopener noreferrer'>Ver ubicación en Mapa</a>

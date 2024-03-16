@@ -21,7 +21,7 @@ export const VestimentaComponent = () => {
             exit={{ opacity: 0 }}
           />
           <h1 className="w-full flex justify-center text-xl text-[#b69f6b] font-semibold tracking-wider mt-4">Hombres</h1>
-          <h2 className="w-full flex justify-center text-gray-700 mt-2 tracking-wide mb-4">Smoking</h2>
+          <h2 className="w-full flex justify-center text-gray-700 mt-2 tracking-wide mb-4">Traje</h2>
         </div>
         <div className="flex flex-col items-start justify-start bg-gray-100/40 rounded-md">
           <img
@@ -32,7 +32,7 @@ export const VestimentaComponent = () => {
             className="rounded-lg h-full"
           />
           <h1 className="w-full flex justify-center text-xl text-[#b69f6b] font-semibold tracking-wider mt-4">Mujeres</h1>
-          <h2 className="w-full flex justify-center text-gray-700 mt-2 tracking-wide mb-4">Vestido largo</h2>
+          <h2 className="w-full flex justify-center text-gray-700 mt-2 tracking-wide mb-4">Vestido</h2>
         </div>
       </div>
     </div>
