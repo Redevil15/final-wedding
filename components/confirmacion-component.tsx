@@ -1,8 +1,8 @@
 import Image from "next/image"
-// import { db } from "@/lib/db"
+import { db } from "@/lib/db"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useState } from "react"
-// import { FormCodigoInvitacion } from "./form/form-codigo-invitacion";
+import { FormCodigoInvitacion } from "./form/form-codigo-invitacion";
 
 export const ConfirmacionComponent = () => {
   let isConfirmationReady = false;
@@ -21,17 +21,12 @@ export const ConfirmacionComponent = () => {
         />
       </div>
       <div className="relative z-9 flex items-center justify-center w-full mx-auto ">
-        {/* {isConfirmationReady ? (<FormCodigoInvitacion />) : (
+        {isConfirmationReady ? (<FormCodigoInvitacion />) : (
           <div className="flex flex-col items-center">
             <h1 className="text-lg mb-4 text-[#374151] font-semibold">Pronto podrás confirmar tu asistencia :) </h1>
             <img src="./work-in-progress.webp" alt="workInProgress" />
           </div>
-        )} */}
-        <div className="flex flex-col items-center">
-          <h1 className="text-lg mb-4 text-[#374151] font-semibold">Pronto podrás confirmar tu asistencia :) </h1>
-          <img src="./work-in-progress.webp" alt="workInProgress" />
-        </div>
-
+        )}
       </div>
 
       Confirmacion component
