@@ -5,7 +5,7 @@ import { useState } from "react"
 import { FormCodigoInvitacion } from "./form/form-codigo-invitacion";
 
 export const ConfirmacionComponent = () => {
-  let isConfirmationReady = false;
+  let isConfirmationReady = true;
 
 
   return (

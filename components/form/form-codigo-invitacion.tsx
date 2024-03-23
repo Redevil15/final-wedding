@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { CardCodigo } from "../cards/card-codigo";
 import { CardListaInvitados } from "../cards/card-lista-invitados";
-// import { CardFinalConfirmation } from "../cards/final-confirmation";
+import { CardFinalConfirmation } from "../cards/final-confirmation";
 
 export const FormCodigoInvitacion = () => {
   const [invitados, setInvitados] = useState([]);
@@ -41,9 +41,10 @@ export const FormCodigoInvitacion = () => {
           onContinue={() => setFinalConfirmation(true)}
         />
       ) : finalConfirmation && (
-        <div>
-          hola
-        </div>
+        <CardFinalConfirmation
+          adultos={invitadosAdultos}
+          ninos={invitadosNinos}
+        />
       )}
     </div>
   )
