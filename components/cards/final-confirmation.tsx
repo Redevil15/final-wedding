@@ -1,11 +1,10 @@
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { useEffect, useState } from "react";
 import { useAction } from "@/hooks/use-action";
 import { confirmAssitence } from "@/actions/confirm-assitence";
+import { toast } from "sonner";
 
 
 interface Invitado {
@@ -17,13 +16,18 @@ interface Invitado {
 interface CardFinalConfirmationProps {
   adultos: Invitado[];
   ninos: Invitado[];
+  onBack: () => void;
+  onSucces: () => void;
 };
 
 export const CardFinalConfirmation = ({
   adultos,
-  ninos
+  ninos,
+  onBack,
+  onSucces
 }: CardFinalConfirmationProps) => {
   const [invitados, setInvitados] = useState<Invitado[]>([...adultos, ...ninos])
+  const [changesMade, setChangesMade] = useState<boolean>(false);
 
   const handleCheckboxChange = (id: string) => {
     setInvitados(prevInvitados =>
@@ -34,6 +38,7 @@ export const CardFinalConfirmation = ({
       )
     )
     console.log('invitados', invitados)
+    setChangesMade(true);
   }
 
   useEffect(() => {
@@ -45,6 +50,8 @@ export const CardFinalConfirmation = ({
     confirmAssitence, {
     onSuccess: (data) => {
       console.log('Invitados confirmados correctamente', data)
+      // Open dialog with success message
+      onSucces()
     },
     onError: (error) => {
       console.log('Error en el codigo', error)
@@ -56,28 +63,19 @@ export const CardFinalConfirmation = ({
     const confirmedInvitados = invitados.filter(invitado => invitado.confirmed);
     console.log('Invitados confirmados:', confirmedInvitados);
 
-    const data = confirmedInvitados.map(invitado => ({
-      id_invitado: invitado.id_invitado,
-      confirmed: true
-    }));
-    console.log('Data a enviar:', data);
-
-    execute(data);
-  }
-
-
-
-  /* const { execute } = useAction(
-    ConfirmAssistence, {
-    onSuccess: (data) => {
-      console.log('Invitados confirmados correctamente', data)
-    },
-    onError: (error) => {
-      console.log('Error al confirmar invitados', error)
+    if (confirmedInvitados.length > 0) {
+      const data = confirmedInvitados.map(invitado => ({
+        id_invitado: invitado.id_invitado,
+        confirmed: true
+      }));
+      console.log('Data a enviar:', data);
+      execute(data);
+    } else {
+      setChangesMade(false);
+      toast.error('Debes confirmar al menos un invitado para continuar')
     }
-  }
-  ) */
 
+  }
 
   return (
     <Card
@@ -113,7 +111,7 @@ export const CardFinalConfirmation = ({
                       handleCheckboxChange(invitado.id_invitado)
                     }}
                   />
-                  <label>{invitado.nombre_invitado}</label>
+                  <label className="text-white text-sm">{invitado.nombre_invitado}</label>
                 </div>
               ))}
             </div>
@@ -132,7 +130,7 @@ export const CardFinalConfirmation = ({
                       handleCheckboxChange(invitado.id_invitado)
                     }}
                   />
-                  <label>{invitado.nombre_invitado}</label>
+                  <label className="text-white text-sm">{invitado.nombre_invitado}</label>
                 </div>
               ))}
             </div>
@@ -145,14 +143,14 @@ export const CardFinalConfirmation = ({
         <Button
           variant="outline"
           className="w-full md:w-auto bg-[#b69f6b] text-white tracking-wider hover:bg-[#b69f6b] hover:text-[#666460] transition-colors duration-300 ease-in-out"
-
-
+          onClick={onBack}
         >
           Regresar
         </Button>
         <Button
           className="w-full md:w-auto bg-[#b69f6b] text-white tracking-wider hover:bg-[#b69f6b] hover:text-[#666460] transition-colors duration-300 ease-in-out"
           onClick={handleSubmitConfirmation}
+          disabled={!changesMade}
         >
           Continuar
         </Button>
