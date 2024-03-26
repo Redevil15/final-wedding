@@ -20,7 +20,6 @@ export const CardCodigo = ({ onInvitados }: CardCodigoProps) => {
     },
     onError: (error) => {
       toast.error("Verifica que tu código de invitado sea correcto")
-
     }
   }
   )
