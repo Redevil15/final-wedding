@@ -64,10 +64,10 @@ export const FormCodigoInvitacion = () => {
             onClose={handleCloseModal}
             className="flex items-center justify-center p-6"
           >
-            <div className="flex flex-col items-center justify-center p-8 bg-white rounded-lg">
-              <CheckCircle className='w-20 h-20' color='#b69f6b' />
-              <p className='text-xl my-4'>Se ha confirmado su asistencia con éxito!</p>
-              <Button variant="outline" onClick={() => handleCloseModal()}>OK</Button>
+            <div className="flex flex-col items-center justify-center px-8 pt-8 pb-2 bg-white rounded-lg">
+              <CheckCircle className='w-20 h-20 animate-pulse' color='#b69f6b' />
+              <p className='text-xl text-center my-4'>Se ha confirmado su asistencia con éxito!</p>
+              <Button variant="outline" onClick={() => handleCloseModal()} className='w-full bg-[#b69f6b] text-white h-12 rounded-md'>OK</Button>
             </div>
           </Modal>
         </div>
