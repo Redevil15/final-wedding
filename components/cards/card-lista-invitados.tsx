@@ -43,7 +43,7 @@ export const CardListaInvitados = ({
               <span className="uppercase mt-2 text-xs text-[#b69f6b]">{adultos?.length === 1 ? `${adultos.length} pase` : `${adultos.length} pases`}</span>
             </div>
             <div className="flex flex-col items-center justify-center w-full">
-              <h1 className="text-sm text-white font-normal tracking-wide">Ninos</h1>
+              <h1 className="text-sm text-white font-normal tracking-wide">Niños</h1>
               <span className="uppercase mt-2 text-xs text-[#b69f6b]">{ninos?.length === 1 ? `${ninos.length} pase` : `${ninos.length} pases`}</span>
             </div>
           </div>
