@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { CardCodigo } from "../cards/card-codigo";
 import { CardListaInvitados } from "../cards/card-lista-invitados";
 import { CardFinalConfirmation } from "../cards/final-confirmation";
-//import Modal from "@/components/modal";
 import Modal from '@mui/material/Modal';
 import { CheckCircle } from "lucide-react";
 import { Button } from "../ui/button";
@@ -17,23 +16,18 @@ export const FormCodigoInvitacion = () => {
   const [showModalConfirm, setShowModalConfirm] = useState(false);
 
   const handleInvitados = (data: any) => {
-    console.log(data)
+    console.log("Hola jaja, no deberías estar viendo esto -_-");
     setInvitados(data.invitados)
-    console.log("Invitados en padre: ", invitados)
   };
 
   useEffect(() => {
-    console.log("Invitados en padre: ", invitados);
     const adultos = invitados.filter((invitado: any) => invitado.es_adulto);
     const ninos = invitados.filter((invitado: any) => !invitado.es_adulto);
     setInvitadosAdultos(adultos);
-    console.log("Adultos", adultos);
     setInvitadosNinos(ninos);
-    console.log("Ninos", ninos);
   }, [invitados]);
 
   const showModal = () => {
-    console.log('showModal se ejecuta?')
     setShowModalConfirm(true)
     setInvitados([])
     setFinalConfirmation(false)
