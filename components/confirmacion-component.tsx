@@ -2,7 +2,7 @@ import Image from "next/image"
 import { FormCodigoInvitacion } from "./form/form-codigo-invitacion";
 
 export const ConfirmacionComponent = () => {
-  let isConfirmationReady = true;
+  let isConfirmationReady = false;
 
 
   return (
