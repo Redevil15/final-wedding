@@ -1,11 +1,8 @@
 import Image from "next/image"
-import { db } from "@/lib/db"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { useState } from "react"
 import { FormCodigoInvitacion } from "./form/form-codigo-invitacion";
 
 export const ConfirmacionComponent = () => {
-  let isConfirmationReady = false;
+  let isConfirmationReady = true;
 
 
   return (

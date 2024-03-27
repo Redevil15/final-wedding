@@ -18,6 +18,7 @@ model Family {
   id_familia String @id @default(uuid())
   nombre_familia String
   invitados Guest[]
+  codigo_utilizado Boolean @default(false)
 }
 
 model Guest {

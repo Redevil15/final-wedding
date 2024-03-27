@@ -4,9 +4,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 import { useAction } from "@/hooks/use-action";
 import { checkCodigo } from "@/actions/check-codigo";
-import { useState } from "react";
 import { FormInput } from "../form/form-input";
 import { FormSubmit } from "../form/form-submit";
+import { toast } from "sonner";
 
 interface CardCodigoProps {
   onInvitados: (data: any) => void;
@@ -16,11 +16,10 @@ export const CardCodigo = ({ onInvitados }: CardCodigoProps) => {
   const { execute, fieldErrors } = useAction(
     checkCodigo, {
     onSuccess: (data) => {
-      console.log('Codigo correcto, respuesta', data)
       onInvitados(data);
     },
     onError: (error) => {
-      console.log('Error en el codigo', error)
+      toast.error("Verifica que tu código de invitado sea correcto")
     }
   }
   )
@@ -39,7 +38,7 @@ export const CardCodigo = ({ onInvitados }: CardCodigoProps) => {
 
   return (
     <Card
-      className="bg-[#666460] max-w-[280px] md:max-w-[450px] h-[600px]"
+      className="bg-[#666460] max-w-[280px] md:max-w-[450px] h-[600px] "
     >
       <CardHeader
         className="mb-10"

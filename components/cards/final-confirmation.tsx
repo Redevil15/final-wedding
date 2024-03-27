@@ -37,38 +37,32 @@ export const CardFinalConfirmation = ({
           : invitado
       )
     )
-    console.log('invitados', invitados)
     setChangesMade(true);
   }
 
   useEffect(() => {
-    console.log('data adultos:', adultos)
-    console.log('Invitados actualizados:', invitados);
   }, [invitados]);
 
   const { execute, fieldErrors } = useAction(
     confirmAssitence, {
     onSuccess: (data) => {
-      console.log('Invitados confirmados correctamente', data)
       // Open dialog with success message
       onSucces()
     },
     onError: (error) => {
-      console.log('Error en el codigo', error)
+      toast.error('Error al confirmar tu asistencia')
     }
   }
   )
 
   const handleSubmitConfirmation = () => {
     const confirmedInvitados = invitados.filter(invitado => invitado.confirmed);
-    console.log('Invitados confirmados:', confirmedInvitados);
 
     if (confirmedInvitados.length > 0) {
       const data = confirmedInvitados.map(invitado => ({
         id_invitado: invitado.id_invitado,
         confirmed: true
       }));
-      console.log('Data a enviar:', data);
       execute(data);
     } else {
       setChangesMade(false);
@@ -79,7 +73,7 @@ export const CardFinalConfirmation = ({
 
   return (
     <Card
-      className="bg-[#666460] max-w-[280px] md:max-w-[450px] h-[600px]"
+      className="bg-[#666460] max-w-[280px] md:max-w-[450px] h-[650px] overflow-y-auto"
     >
       <CardHeader
         className="mb-10"
@@ -118,7 +112,7 @@ export const CardFinalConfirmation = ({
           </div>
           <div>
             <h1 className="text-[#b69f6b] mt-4 mb-1 tracking-wide">
-              Ninos
+              Niños
             </h1>
             <div className="flex flex-col gap-y-4">
               {ninos.map((invitado, index) => (
