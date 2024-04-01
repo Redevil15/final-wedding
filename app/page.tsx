@@ -10,7 +10,7 @@ import { VestimentaComponent } from "@/components/vestimenta-component";
 import Image from "next/image";
 
 export default function Home() {
-  const scrollToIds = ['home', 'time&place', 'giftTable', 'confirmation'];
+  const scrollToIds = ['home', 'time&place', 'gift Table', 'confirmation'];
   return (
     <div>
       <div className="overflow-x-hidden">
