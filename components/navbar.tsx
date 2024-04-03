@@ -28,7 +28,7 @@ export const Navbar = ({
 
       </div>
       <ul className="hidden md:flex justify-center items-center list-none flex-1">
-        {['home', 'time&place', 'giftTable', 'confirmation'].map((item) => (
+        {['home', 'time&place', 'gift Table', 'confirmation'].map((item) => (
           <li
             key={`link-${item}`}
 
@@ -64,7 +64,7 @@ export const Navbar = ({
               className="w-9 h-9 text-[#B69F6B] ml-auto cursor-pointer"
             />
             <ul className="list-none flex flex-col justify-start items-start h-full w-full">
-              {['home', 'time&place', 'giftTable', 'confirmation'].map((item) => (
+              {['home', 'time&place', 'gift Table', 'confirmation'].map((item) => (
                 <li
                   key={item}
                   className="my-4"
