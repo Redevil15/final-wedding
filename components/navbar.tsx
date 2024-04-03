@@ -14,7 +14,6 @@ export const Navbar = ({
   const [toggle, setToggle] = useState(false)
 
   const handleScrollTo = (id: string) => {
-    console.log('prueba')
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
