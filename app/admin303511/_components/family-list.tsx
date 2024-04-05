@@ -1,4 +1,6 @@
+'use client';
 import { FormPopover } from "@/components/form/form-popover"
+import { useEffect } from "react"
 
 
 interface FamilyListProps {
@@ -8,6 +10,9 @@ interface FamilyListProps {
 export const FamilyList = async ({
   data
 }: FamilyListProps) => {
+  useEffect(() => {
+    console.log('Family list', data)
+  }, [])
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-4 gap-2">
