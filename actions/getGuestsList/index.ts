@@ -7,17 +7,24 @@ import { FetchGuestList } from "./schema";
 import { Guest } from "@prisma/client";
 
 const handler = async (): Promise<ReturnType> => {
-  let guests: Guest[];
+  let families: any[];
   console.log('jaja no se que show')
   try {
-    guests = await db.guest.findMany();
+    families = await db.family.findMany({
+      include: {
+        invitados: true
+      },
+      orderBy: {
+        nombre_familia: 'asc'
+      }
+    });
   } catch (error) {
     return {
       error: "Error al obtener la lista de invitados",
     };
   }
 
-  return { data: guests };
+  return { data: families };
 };
 
 export const fetchGuestList = createSafeAction(FetchGuestList, handler)

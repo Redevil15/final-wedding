@@ -1,18 +1,39 @@
 'use client';
 import { FormPopover } from "@/components/form/form-popover"
-import { useEffect } from "react"
+import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react"
+import { useAction } from "@/hooks/use-action";
+import { fetchGuestList } from "@/actions/getGuestsList";
 
 
 interface FamilyListProps {
   data: any[]
 }
 
-export const FamilyList = async ({
-  data
+export const FamilyList = ({
+  data: initialData
 }: FamilyListProps) => {
+  const [data, setData] = useState(initialData);
+
   useEffect(() => {
     console.log('Family list', data)
-  }, [])
+  }, [data])
+
+  const { execute: executeFetchGuestList } = useAction(fetchGuestList, {
+
+    onSuccess: (responseData: any) => {
+      setData(responseData)
+      console.log('Data', data)
+    },
+    onError: (error: any) => {
+      console.log('Error', error)
+    }
+  })
+
+  const handleGetFamiliesList = () => {
+    console.log('onclick')
+    executeFetchGuestList({});
+  }
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-4 gap-2">
@@ -38,6 +59,11 @@ export const FamilyList = async ({
           </div>
         </FormPopover>
       </div>
+      <Button
+        onClick={handleGetFamiliesList}
+      >
+        Get families list
+      </Button>
     </div >
   )
 }
