@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react"
 import { useAction } from "@/hooks/use-action";
 import { fetchGuestList } from "@/actions/getGuestsList";
+import { Trash2Icon } from "lucide-react";
+import { deleteFamily } from "@/actions/delete-family";
+import { toast } from "sonner";
 
 
 interface FamilyListProps {
@@ -16,23 +19,36 @@ export const FamilyList = ({
   const [data, setData] = useState(initialData);
 
   useEffect(() => {
-    console.log('Family list', data)
+
   }, [data])
 
   const { execute: executeFetchGuestList } = useAction(fetchGuestList, {
 
     onSuccess: (responseData: any) => {
+      toast.success("Families list fetched");
       setData(responseData)
-      console.log('Data', data)
     },
     onError: (error: any) => {
       console.log('Error', error)
     }
   })
 
+  const { execute } = useAction(deleteFamily, {
+    onSuccess: (responseData: any) => {
+      toast.success("Family deleted");
+      handleGetFamiliesList()
+    },
+    onError: (error: any) => {
+      console.log('Error deleting family', error)
+    }
+  })
+
   const handleGetFamiliesList = () => {
-    console.log('onclick')
     executeFetchGuestList({});
+  }
+
+  const handleDeleteFamily = (id: string) => {
+    execute({ id })
   }
   return (
     <div className="space-y-4">
@@ -44,6 +60,14 @@ export const FamilyList = ({
             <p className="relative font-semibold text-white">
               {family.nombre_familia}
             </p>
+            <Button
+              variant='destructive'
+              onClick={() => handleDeleteFamily(family.id_familia)}
+              id={family.id_familia}
+              className="absolute top-2 right-2"
+            >
+              <Trash2Icon className="h-4 w-4" />
+            </Button>
           </div>
         ))}
 
