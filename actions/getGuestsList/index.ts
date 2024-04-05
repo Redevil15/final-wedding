@@ -4,11 +4,10 @@ import { db } from "@/lib/db";
 import { ReturnType } from "./types";
 import { createSafeAction } from "@/lib/create-safe-action";
 import { FetchGuestList } from "./schema";
-import { Guest } from "@prisma/client";
+
 
 const handler = async (): Promise<ReturnType> => {
   let families: any[];
-  console.log('jaja no se que show')
   try {
     families = await db.family.findMany({
       include: {

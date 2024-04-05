@@ -21,7 +21,7 @@ model Guest {
   es_adulto       Boolean @default(false)
   confirmed       Boolean @default(false)
   id_familia      String
-  familia         Family  @relation(fields: [id_familia], references: [id_familia])
+  familia         Family  @relation(fields: [id_familia], references: [id_familia], onDelete: Cascade)
 
   @@index([id_familia], map: "id_familia")
 }

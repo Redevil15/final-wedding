@@ -7,9 +7,9 @@ import { createSafeAction } from "@/lib/create-safe-action";
 import { InviteFamily } from "./schema";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-  console.log('como viene la data', data)
+ 
   const { nombre_familia, invitados } = data;
-  console.log('Invite action', data)
+  
 
   let family;
 
@@ -33,7 +33,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
-  revalidatePath('/adminPage123')
+  revalidatePath('https://fabybrandon-wedding.vercel.app/admin303511')
   return { data: family };
 };
 
