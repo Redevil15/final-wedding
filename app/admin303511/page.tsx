@@ -1,3 +1,4 @@
+"use server";
 import { db } from "@/lib/db";
 
 import { FamilyList } from "./_components/family-list";
@@ -21,7 +22,7 @@ const AdminPage = async () => {
         Lista de invitados
       </div>
       <div className="flex flex-col space-y-2">
-        <FamilyList 
+        <FamilyList
           data={families}
         />
       </div>
