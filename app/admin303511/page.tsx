@@ -1,5 +1,5 @@
 import { db } from "@/lib/db";
-import { useRouter } from "next/navigation";
+
 import { FamilyList } from "./_components/family-list";
 
 const AdminPage = async () => {
@@ -21,7 +21,9 @@ const AdminPage = async () => {
         Lista de invitados
       </div>
       <div className="flex flex-col space-y-2">
-        <FamilyList />
+        <FamilyList 
+          data={families}
+        />
       </div>
     </div>
   )

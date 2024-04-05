@@ -1,6 +1,7 @@
 "use client";
 
 import { easeInOut, motion } from "framer-motion";
+import Image from "next/image";
 
 const scaleVariants = {
   whileInView: {
@@ -21,11 +22,19 @@ const images = {
 
 export const Header = () => {
   return (
-    <div id="home" className="pt-16 flex flex-1 flex-col md:flex-col">
+    <div id="home" className="relative z-9 w-full px-5 md:px-0 md:max-w-screen-lg mx-auto py-10 md:py-20 bg-cover bg-center mt-[75px] h-[700px]">
+      <div className="absolute inset-0 w-full h-[680px]">
+        <Image
+          src="/fabybrandon.webp"
+          alt="profile_bg"
+          layout="fill"
+          className="rounded-lg absolute"
+        />
+      </div>
       <motion.div
-        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+        whileInView={{ x: [-100, -15], opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
-        className="flex flex-0.65 flex-col justify-start items-start h-full mt-5 md:w-full md:mx-0 md:mr-0 md:mb-2"
+        className="relative flex flex-0.65 flex-col justify-start items-start h-full mt-5 md:mt-0 md:w-full md:mx-0 md:mr-0 md:mb-2"
       >
         <div className="flex justify-end items-end flex-col md:flex-row md:justify-start md:items-start">
           <div className="flex flex-row items-center p-4 bg-white rounded-lg shadow-md">
@@ -37,34 +46,6 @@ export const Header = () => {
           </div>
         </div>
       </motion.div>
-
-      <motion.div
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="flex flex- mt-8 justify-end items-end relative md:ml-0 md:mb-2"
-      >
-        <img src="./couple.png" alt="profile_bg" className="w-full z-9" />
-        {/*  <motion.img
-          whileInView={{ scale: [0, 1] }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
-          src="./circle.svg"
-          alt="profile_circle"
-          className="absolute bottom-0 w-full h-5/6 z-0"
-        /> */}
-      </motion.div>
-
-      <motion.div
-        variants={scaleVariants}
-        whileInView={scaleVariants.whileInView}
-        className="flex flex-0.75 flex-row justify-between items-start md:w-full md:flex-row md:flex-wrap md:ml-0"
-      >
-        {[images.flutter, images.redux, images.sass].map((circle, index) => (
-          <div className={`w-24 h-24 md:w-${index === 0 ? '40' : index === 1 ? '60' : '32'} md:h-${index === 0 ? '40' : index === 1 ? '60' : '32'} flex justify-center items-center rounded-full bg-white shadow-md m-4`} key={`circle-${index}`}>
-            <img src={circle} alt="profile_bg" className="w-3/5 h-3/5" />
-          </div>
-        ))}
-      </motion.div>
-
     </div>
   )
 }
