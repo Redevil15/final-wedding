@@ -13,7 +13,7 @@ export const MesaRegalos = () => {
           rel="noreferrer"
         >
           <img
-            src="/amazon.png"
+            src="/sears.png"
             alt="mesa-regalos"
           />
         </a>
