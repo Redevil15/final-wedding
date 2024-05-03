@@ -8,7 +8,7 @@ export const MesaRegalos = () => {
         className="flex items-center justify-center cursor-pointer w-60 mb-4 border rounded-md shadow-md hover:shadow-lg max-h-[90px] pb-4"
       >
         <a
-          href="https://www.amazon.com.mx/wedding/share/brandonyfaby"
+          href="https://www.sears.com.mx/Mesa-de-Regalos/139605/brandon-faby"
           target="_blank"
           rel="noreferrer"
         >
